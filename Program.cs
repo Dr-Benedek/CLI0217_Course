@@ -11,7 +11,7 @@ while (!sr.EndOfStream)
 }
 Console.WriteLine($"1. feladat: adatsorok száma: {hallgatok.Count}");
 
-double f2 = hallgatok.Average(h => h.Eredmeneyek[0]);
+double f2 = hallgatok.Average(h => h.Eredmeneyek[3]);
 Console.WriteLine($"2. feladat: Backend fejlesztés átlag: {f2:0.00}");
 
 var f3 = hallgatok.OrderByDescending(h => h.Eredmeneyek.Sum()).First();
@@ -22,9 +22,9 @@ Console.WriteLine($"4. feladat: a férfiak aránya: {f4:0.00} %");
 
 
 var f5 = hallgatok.Where(h => h.Nem == "f")
-    .OrderByDescending(h => h.Eredmeneyek[0] + h.Eredmeneyek[1])
+    .OrderByDescending(h => h.Eredmeneyek[2] + h.Eredmeneyek[3])
     .First();
-Console.WriteLine($"5. feladat: A legjobb női webfejlesdztő: {f5.Nev}, eredménye: {f5.Eredmeneyek[0] + f5.Eredmeneyek[1]}");
+Console.WriteLine($"5. feladat: A legjobb női webfejlesdztő: {f5.Nev}, eredménye: {f5.Eredmeneyek[2] + f5.Eredmeneyek[3]}");
 
 
 Console.WriteLine($"6. feladat: Előfinanszírozták a tanfolyam árát:");
