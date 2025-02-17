@@ -39,15 +39,11 @@ Console.WriteLine($"7. feladat:");
 Console.Write("\tAdja meg a diák nevét: ");
 string sn = Console.ReadLine();
 var diak = hallgatok.FirstOrDefault(h => h.Nev == sn);
-static string Targynevek(int szam)
-{
-    var targyak = new[] { "hálozat", "mobil", "forontend", "backend" };
-    return targyak[szam];
-}
+var targyak = new[] { "hálozat", "mobil", "forontend", "backend" };
 if (diak != null)
 {
     var f7 = diak.Eredmeneyek
-        .Select((s, i) => s < 51 ? Targynevek(i) : null)
+        .Select((s, i) => s < 51 ? targyak[i] : null)
         .Where(t => t != null).ToList();
 
     if (f7.Any())
@@ -73,7 +69,7 @@ Console.WriteLine($"\n9. feladat: Modulonként hány tanulónak kell javítóviz
 for (int i = 0; i < 4; i++)
 {
     int f9 = hallgatok.Count(h => h.Eredmeneyek[i] < 51);
-    Console.WriteLine($"\t {Targynevek(i)} modulból, javítók száma: {f9}");
+    Console.WriteLine($"\t {targyak[i]} modulból, javítók száma: {f9}");
 }
 
 
